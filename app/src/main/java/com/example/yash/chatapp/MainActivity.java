@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -26,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     EditText input;
     View.OnClickListener send_listener;
     SharedPreferences message_Store;
-    FirebaseDatabase message_Database = FirebaseDatabase.getInstance();
+    FirebaseDatabase message_Database;
     DatabaseReference message_Ref;
 
     @Override
@@ -34,27 +35,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(linearLayoutManager);
-        Adapter adapter = new Adapter(MainActivity.this, messages);
-        recyclerView.setAdapter(adapter);
+        FirebaseApp.initializeApp(this);
+        message_Database = FirebaseDatabase.getInstance();
 
         send = (ImageButton) findViewById(R.id.send_Button);
         input =  (EditText) findViewById(R.id.input_editText);
 
-        //message_Store = getSharedPreferences("data", Context.MODE_PRIVATE);
-
         message_Ref = message_Database.getReference("messages");
-
-        /*if(message_Store.contains("")) {
-           m = new Message();
-        }
-
-        else{
-            m =
-        }
-        messages = new Message(m);*/
 
         message_Ref.addValueEventListener(new ValueEventListener() {
             @Override
@@ -78,5 +65,12 @@ public class MainActivity extends AppCompatActivity {
                 m = new Message(m);
             }
         };
+
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(linearLayoutManager);
+        Adapter adapter = new Adapter(MainActivity.this, messages);
+        recyclerView.setAdapter(adapter);
+
     }
 }

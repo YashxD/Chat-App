@@ -13,7 +13,7 @@ import android.widget.Toast;
  * Created by yash on 22/12/17.
  */
 
-public class Adapter extends RecyclerView.Adapter {
+public class Adapter extends RecyclerView.Adapter<Adapter.CustomViewHolder> {
     Context context;
     Message messages;
 
