@@ -1,12 +1,14 @@
 package com.example.yash.chatapp;
 
+import java.util.ArrayList;
+
 /**
  * Created by yash on 22/12/17.
  */
 
 public class Message {
-    public int[] inout = new int[50];
-    public String[] message = new String[50];
+    public ArrayList inout = new ArrayList();
+    public ArrayList<String> message = new ArrayList<String>();
     int count;
 
     public Message(Message m) {
@@ -21,8 +23,8 @@ public class Message {
 
     public void newMesage(String input) {
         count++;
-        message[count] = input;
-        inout[count] = 1;
+        message.add(input);
+        inout.add(1);
     }
 
     public int returnSize() {

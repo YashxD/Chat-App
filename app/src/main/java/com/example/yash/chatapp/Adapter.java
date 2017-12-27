@@ -32,8 +32,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.CustomViewHolder> {
 
     @Override
     public void onBindViewHolder(CustomViewHolder holder, final int position) {
-        holder.message.setText(messages.message[position]);
-        if(messages.inout[position]==1) {
+        holder.message.setText(messages.message.get(position));
+        if(messages.inout.get(position).equals(1)) {
             holder.stat.setImageResource(R.drawable.outbound_message);
         }
         else {

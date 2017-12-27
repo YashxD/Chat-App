@@ -20,6 +20,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import static java.sql.Types.NULL;
+
 public class MainActivity extends AppCompatActivity {
 
     Message messages, m;
@@ -28,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     View.OnClickListener send_listener;
     SharedPreferences message_Store;
     FirebaseDatabase message_Database;
-    DatabaseReference message_Ref;
+    private DatabaseReference message_Ref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,17 +38,26 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         FirebaseApp.initializeApp(this);
-        message_Database = FirebaseDatabase.getInstance();
+        message_Ref = FirebaseDatabase.getInstance().getReferenceFromUrl("https://chat-app-2e2d4.firebaseio.com/");
 
         send = (ImageButton) findViewById(R.id.send_Button);
-        input =  (EditText) findViewById(R.id.input_editText);
+        input = (EditText) findViewById(R.id.input_editText);
 
-        message_Ref = message_Database.getReference("messages");
+        //message_Ref = message_Database.getReference("messages");
+
+        //message_Ref.addListenerForSingleValueEvent();
+
+        m = new Message();
 
         message_Ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                m = dataSnapshot.getValue(Message.class);
+                if (dataSnapshot.hasChild("messages")) {
+                    m = dataSnapshot.getValue(Message.class);
+                }
+                else {
+                    m = new Message();
+                }
                 //Log.d(Tag, "RETRIEVED");
             }
 
@@ -62,9 +73,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 messages.newMesage(input.getText().toString());
-                m = new Message(m);
+                message_Ref.child("messages").setValue(messages);
             }
         };
+
+        send.setOnClickListener(send_listener);
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());

@@ -529,6 +529,7 @@
     <string name="app_name">Chat App</string>
     <string name="common_google_play_services_unknown_issue"><ns1:g id="app_name">%1$s</ns1:g> is having trouble with Google Play services. Please try again.</string>
     <string name="default_web_client_id" translatable="false">726028237796-9ktu5kuskraojdaj48ni76tuhp3m8at3.apps.googleusercontent.com</string>
+    <string name="fcm_fallback_notification_channel_label">Miscellaneous</string>
     <string name="firebase_database_url" translatable="false">https://chat-app-2e2d4.firebaseio.com</string>
     <string name="gcm_defaultSenderId" translatable="false">726028237796</string>
     <string name="google_api_key" translatable="false">AIzaSyCOWiF5YWV322jrAYBkmEgJKfxS8aMbmbY</string>
