@@ -25,12 +25,14 @@ import static java.sql.Types.NULL;
 public class MainActivity extends AppCompatActivity {
 
     Message messages, m;
-    ImageButton send;
+    Button send;
     EditText input;
     View.OnClickListener send_listener;
     SharedPreferences message_Store;
     FirebaseDatabase message_Database;
     private DatabaseReference message_Ref;
+    Adapter adapter;
+    RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,14 +42,20 @@ public class MainActivity extends AppCompatActivity {
         FirebaseApp.initializeApp(this);
         message_Ref = FirebaseDatabase.getInstance().getReferenceFromUrl("https://chat-app-2e2d4.firebaseio.com/");
 
-        send = (ImageButton) findViewById(R.id.send_Button);
+        send = (Button) findViewById(R.id.send_Button);
         input = (EditText) findViewById(R.id.input_editText);
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(linearLayoutManager);
 
         //message_Ref = message_Database.getReference("messages");
 
         //message_Ref.addListenerForSingleValueEvent();
 
         m = new Message();
+        messages = new Message(m);
+        recyclerView.setAdapter(new Adapter(MainActivity.this, messages));
+        //adapter = new Adapter(MainActivity.this, messages);
 
         message_Ref.addValueEventListener(new ValueEventListener() {
             @Override
@@ -74,16 +82,18 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 messages.newMesage(input.getText().toString());
                 message_Ref.child("messages").setValue(messages);
+                input.setText("");
+                //adapter.notifyDataSetChanged();
+                recyclerView.setAdapter(new Adapter(MainActivity.this, messages));
+                recyclerView.invalidate();
+                //input.setText(String.valueOf(app.getTotalDl()));
             }
         };
 
         send.setOnClickListener(send_listener);
 
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(linearLayoutManager);
-        Adapter adapter = new Adapter(MainActivity.this, messages);
-        recyclerView.setAdapter(adapter);
+        //adapter = new Adapter(MainActivity.this, messages);
+        //recyclerView.setAdapter(adapter);
 
     }
 }

@@ -1,51 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
 <instant-run
-    abi="x86"
-    api-level="27"
-    build-mode="COLD"
-    density="560dpi"
+    abi="arm64-v8a,armeabi-v7a,armeabi"
+    api-level="23"
+    build-mode="FULL"
+    density="420dpi"
     format="10"
-    ir-eligibility="FIELD_TYPE_CHANGE"
+    ir-eligibility="COMPATIBLE"
     plugin-version="3.0.1"
-    timestamp="1514383591064"
+    timestamp="1514394324540"
     token="-6978137933472326349"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="133" />
+        duration="0" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="5" />
+        duration="4" />
     <task
         name="verifier"
         duration="1" />
 
     <artifact
+        location="/home/yash/AndroidStudioProjects/ChatApp/app/build/intermediates/split-apk/debug/dep/dependencies.apk"
+        type="SPLIT" />
+    <artifact
+        location="/home/yash/AndroidStudioProjects/ChatApp/app/build/intermediates/split-apk/debug/slices/slice_0.apk"
+        type="SPLIT" />
+    <artifact
+        location="/home/yash/AndroidStudioProjects/ChatApp/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
+        type="SPLIT" />
+    <artifact
+        location="/home/yash/AndroidStudioProjects/ChatApp/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
+        type="SPLIT" />
+    <artifact
+        location="/home/yash/AndroidStudioProjects/ChatApp/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
+        type="SPLIT" />
+    <artifact
+        location="/home/yash/AndroidStudioProjects/ChatApp/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
+        type="SPLIT" />
+    <artifact
+        location="/home/yash/AndroidStudioProjects/ChatApp/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
+        type="SPLIT" />
+    <artifact
+        location="/home/yash/AndroidStudioProjects/ChatApp/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
+        type="SPLIT" />
+    <artifact
+        location="/home/yash/AndroidStudioProjects/ChatApp/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
+        type="SPLIT" />
+    <artifact
+        location="/home/yash/AndroidStudioProjects/ChatApp/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
+        type="SPLIT" />
+    <artifact
         location="/home/yash/AndroidStudioProjects/ChatApp/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
         type="SPLIT" />
+    <artifact
+        location="/home/yash/AndroidStudioProjects/ChatApp/app/build/outputs/apk/debug/app-debug.apk"
+        type="SPLIT_MAIN" />
 
     <build
         build-mode="FULL"
-        timestamp="1514379614868"
-        verifier="FULL_BUILD_REQUESTED" >
+        ir-eligibility="COMPATIBLE"
+        timestamp="1514394324540"
+        verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="/home/yash/AndroidStudioProjects/ChatApp/app/build/intermediates/split-apk/debug/dep/dependencies.apk"
-            type="SPLIT" />
-        <artifact
-            location="/home/yash/AndroidStudioProjects/ChatApp/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
-            type="SPLIT" />
-        <artifact
-            location="/home/yash/AndroidStudioProjects/ChatApp/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
             type="SPLIT" />
         <artifact
             location="/home/yash/AndroidStudioProjects/ChatApp/app/build/intermediates/split-apk/debug/slices/slice_0.apk"
             type="SPLIT" />
         <artifact
             location="/home/yash/AndroidStudioProjects/ChatApp/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
+            type="SPLIT" />
+        <artifact
+            location="/home/yash/AndroidStudioProjects/ChatApp/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
+            type="SPLIT" />
+        <artifact
+            location="/home/yash/AndroidStudioProjects/ChatApp/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
+            type="SPLIT" />
+        <artifact
+            location="/home/yash/AndroidStudioProjects/ChatApp/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
             type="SPLIT" />
         <artifact
             location="/home/yash/AndroidStudioProjects/ChatApp/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
@@ -57,26 +94,14 @@
             location="/home/yash/AndroidStudioProjects/ChatApp/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
             type="SPLIT" />
         <artifact
+            location="/home/yash/AndroidStudioProjects/ChatApp/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
+            type="SPLIT" />
+        <artifact
             location="/home/yash/AndroidStudioProjects/ChatApp/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
             type="SPLIT" />
         <artifact
             location="/home/yash/AndroidStudioProjects/ChatApp/app/build/outputs/apk/debug/app-debug.apk"
             type="SPLIT_MAIN" />
-        <artifact
-            location="/home/yash/AndroidStudioProjects/ChatApp/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
-            type="SPLIT" />
-        <artifact
-            location="/home/yash/AndroidStudioProjects/ChatApp/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
-            type="SPLIT" />
-    </build>
-    <build
-        build-mode="COLD"
-        ir-eligibility="FIELD_TYPE_CHANGE"
-        timestamp="1514383591064"
-        verifier="COLD_SWAP_REQUESTED" >
-        <artifact
-            location="/home/yash/AndroidStudioProjects/ChatApp/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
-            type="SPLIT" />
     </build>
 
 </instant-run>
