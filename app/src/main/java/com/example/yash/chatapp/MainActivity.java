@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
@@ -62,9 +63,11 @@ public class MainActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.hasChild("messages")) {
                     m = dataSnapshot.getValue(Message.class);
+                    Toast.makeText(getApplicationContext(), "Data Retrieved", Toast.LENGTH_SHORT).show();
                 }
                 else {
                     m = new Message();
+                    Toast.makeText(getApplicationContext(), "ERROR CUZ LOL", Toast.LENGTH_SHORT).show();
                 }
                 //Log.d(Tag, "RETRIEVED");
             }
